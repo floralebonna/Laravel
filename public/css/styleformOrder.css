@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url('gambar.png');
+    background-size: cover;
+}
+h1{
+    font-family: 'Arial Narrow';
+    font-size: 45px;
+    color: #000;
+    border-bottom: 5px solid white; 
+}
+.order-form{
+    padding: 30px;
+    background-color:#6FB3F2;
+    transition: margin-left 0.18s ease;
+    width: 650px;
+    height: 610px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    position: absolute;
+    border-radius: 10px;
+}
+.order-form p{
+    font-weight: bold;
+    color: #000;
+    font-size: 25px;
+    margin: 15px 0;
+    font-family: 'Arial Narrow';
+}
+.order-form input{
+    font-size: 16px;
+    width: 420px;
+    padding: 20px 10px;
+    border: none;
+    outline: none;
+    border-radius:10px;
+}
+.order-form button{
+    border: 2px solid #ffffff;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 70px;
+    font-size: 25px;
+    color: #fff;
+    background-color:#69DAEA;
+    border-radius: 8px;
+    font-family: 'Aladin';
+}
+
+.order-form select{
+    font-size: 16px;
+    width: 420px;
+    padding: 20px 10px;
+    border: none;
+    outline: none;
+    border-radius:10px;
+}

@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    background: url('gambar.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.button {
+    width: 200px;
+    border: 2px solid #ffffff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 40px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button2 {
+    background-color: #69DAEA;
+    position: center;
+    font-family: 'Aladin';
+}
+h1{
+    font-family: 'Inter';
+    font-size: 85px;
+    color: white;
+}
+h2{
+    font-family: 'Vivaldi';
+    font-size: 70px;
+}
+h3{
+    font-family: 'Lucida Handwriting';
+    font-size: 30px;
+    color: #ffffff;
+}
+h4{
+    font-family: 'Arial';
+    font-size: 30px;
+}
+h5{
+    color: #a4d3ff;
+    border-bottom: 5px solid white; 
+    font-family: 'Kristen ITC';
+    font-size: 40px;
+}
+h6{
+    color: #a4d3ff;
+    border-bottom: 5px solid white; 
+    font-family: 'Kristen ITC';
+    font-size: 15px;
+}
+p{
+    width: 50px;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+ul{
+    list-style-type: none;
+    margin-top: 15px;
+    margin-left: 1400px;
+ }
+
+ ul li a{
+     text-decoration: none;
+     color: #fff;
+     padding: 5px 20px;
+     border: 1px solid #fff;
+ }

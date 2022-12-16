@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url('gambar.png');
+    background-size: cover;
+    
+}
+
+h1{
+    font-family: 'Arial Narrow';
+    color: #000;
+    border-bottom: 5px solid white; 
+    font-size: 40px;
+}
+
+.order-form{
+    padding: 50px;
+    background-color:#6FB3F2;
+    transition: margin-left 0.18s ease;
+    width: 600px;
+    height: 540px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    position: absolute;
+    border-radius: 10px;
+}
+
+p{
+    font-family: 'Lucida Handwriting';
+    color: #000;
+    border-bottom: 3px solid rgb(0, 0, 0); 
+    font-size: 25px;
+}
+
+table{
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+td{
+    font-family: 'Arial Narrow';
+    font-size: 25px;
+}
+
+.order-form button{
+    border: 2px solid #ffffff;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 25px;
+    color: #fff;
+    background-color:#69DAEA;
+    border-radius: 8px;
+    font-family: 'Aladin';
+}
+
+h5{
+    color: chartreuse;
+    font-size: 25px; 
+}
+
+h4{
+ color: red;
+ font-size: 20px;   
+}
+
+input{
+    border: 1px solid #000000;
+    outline: none;
+    width: 50px;
+    padding: 3px;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 23px;
+    color: rgb(0, 0, 0);
+    background-color:#69DAEA;
+    border-radius: 8px;
+    font-family: 'Aladin';
+    text-align: center;
+}
+

@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url('gambar.png') no-repeat;
+    background-size: cover;
+}
+.Register-form{
+    padding: 30px;
+    background-color:#6FB3F2;
+    transition: margin-left 0.18s ease;
+    width: 500px;
+    height: 680px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    position: absolute;
+    border-radius: 5px;
+}
+.Register-form{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    position: absolute;
+    color: #fff;
+}
+.Register-form p{
+    font-weight: bold;
+    color: #000;
+    font-size: 20px;
+    margin: 15px 0;
+    font-family: 'Arial Narrow';
+}
+.Register-form input{
+    font-size: 16px;
+    width: 350px;
+    padding: 18px 10px;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+}
+.Register-form button{
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #69DAEA;
+    border: 2px solid #ffffff;
+    color: white;
+    font-family: 'Aladin';
+    width: 210px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 35px;
+    color: #000;
+    border-bottom: 3px solid white; 
+}
+h6{
+    font-family: 'Arial Narrow';
+    font-size: 12px;
+    color: #000;
+}
