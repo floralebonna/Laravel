@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InformasiPemesanan;
-use App\Models\orderan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +9,9 @@ class OrderController extends Controller
 {
     public function formOrder()
     {
-        $arrayjam = ['Select Time', '08.00-10.00','09.00-11.00','10.00-12.00','11.00-13.00','12.00-14.00','13.00-15.00','14.00-16.00','15.00-17.00'];
+        $arrayjam = ['Select Time', '08.00-10.00', '09.00-11.00', '10.00-12.00', '11.00-13.00', '12.00-14.00', '13.00-15.00', '14.00-16.00', '15.00-17.00'];
         return view('formOrder', [
-            'jam'=>$arrayjam
+            'jam' => $arrayjam
         ]);
     }
     public function store(Request $request)
@@ -28,10 +26,12 @@ class OrderController extends Controller
         $date = substr($validatedData['date'], 0, 10);
         DB::insert('insert into orderans (date, time) values (?, ?)', [$date, $validatedData['time']]);
         $idBooking = DB::select("SHOW TABLE STATUS LIKE 'orderans'");
-        $idB = $idBooking[0];
+        $idB = $idBooking[0]->Auto_increment;
+        $idB -= 1;
 
         $idPelangan = auth()->user()->id;
-        DB::insert('insert into informasi_pemesanans (idPelanggan, idBooking, Name, Phone_number, Address) values (?, ?, ?, ?, ?)', [$idPelangan, $idB, $validatedData['Name'], $validatedData['Phone_number'], $validatedData['Address']]);
+        DB::insert('insert into informasi_pemesanans (idPelanggan, idBooking, Name, Phone_number, Address, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)',
+        [$idPelangan, $idB, $validatedData['Name'], $validatedData['Phone_number'], $validatedData['Address'], now(), now()]);
 
         return redirect('/dashboard');
     }
