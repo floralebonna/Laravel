@@ -16,6 +16,10 @@ class orderan extends Model
     public function Karyawan()
     {
         return $this->belongsToMany(User::class);
-        }
     }
 
+    public function info()
+    {
+        return $this->belongsToMany(User::class);
+    }
+}

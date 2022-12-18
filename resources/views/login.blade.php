@@ -3,6 +3,12 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" href={{ asset('css/stylelogin.css') }}>
+    <style>
+        body {
+            background-image: url('img/gambar.png');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>

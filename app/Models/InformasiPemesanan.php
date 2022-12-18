@@ -11,11 +11,13 @@ class InformasiPemesanan extends Model
 
     protected $guarded = ['id'];
 
-    public function pelanggan(){
+    public function pelanggan()
+    {
         return $this->belongsToMany(User::class);
     }
 
-    public function booking(){
+    public function booking()
+    {
         return $this->belongsToMany(orderan::class);
     }
 }

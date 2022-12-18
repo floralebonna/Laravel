@@ -30,7 +30,7 @@ class OrderController extends Controller
         $idB -= 1;
 
         $idPelangan = auth()->user()->id;
-        DB::insert('insert into informasi_pemesanans (idPelanggan, idBooking, Name, Phone_number, Address, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)',
+        DB::insert('insert into informasi_pemesanans (idPelanggan, idBooking, Name, Phone_number, alamat, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)',
         [$idPelangan, $idB, $validatedData['Name'], $validatedData['Phone_number'], $validatedData['Address'], now(), now()]);
 
         return redirect('/dashboard');
@@ -39,9 +39,21 @@ class OrderController extends Controller
     public function ViewOrder()
     {
         $id = auth()->user()->id;
-        $data = DB::select('select * from informasi_pemesanans where idBooking = ?', [$id]);
+        $data = DB::select('select * from informasi_pemesanans JOIN
+        users ON informasi_pemesanans.idPelanggan = users.id JOIN
+        orderans ON informasi_pemesanans.idBooking = orderans.id where idPelanggan = ?', [$id]);
 
         return view('orderan', [
+            'data' => $data
+        ]);
+    }
+    public function viewData($id)
+    {
+        $data = DB::select('select * from informasi_pemesanans JOIN
+        users ON informasi_pemesanans.idPelanggan = users.id JOIN
+        orderans ON informasi_pemesanans.idBooking = orderans.id where informasi_pemesanans.id = ?', [$id]);
+
+        return view('yourOrderBelum', [
             'data' => $data
         ]);
     }

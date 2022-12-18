@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Halaman Pelanggan</title>
     <link rel="stylesheet" href={{ asset('css/stylehalaman.css') }}>
+    <style>
+        body {
+            background: url('img/gambar.png') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 
 <body>

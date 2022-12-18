@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InformasiPemesanan;
 use App\Http\Requests\StoreInformasiPemesananRequest;
 use App\Http\Requests\UpdateInformasiPemesananRequest;
+use Illuminate\Support\Facades\DB;
 
 class InformasiPemesananController extends Controller
 {
@@ -15,7 +16,14 @@ class InformasiPemesananController extends Controller
      */
     public function index()
     {
-        //
+        // $data = DB::select('select * from informasi_pemesanans JOIN
+        // users ON informasi_pemesanans.idPelanggan = users.id JOIN
+        // orderans ON informasi_pemesanans.idBooking = orderans.id');
+        $data = InformasiPemesanan::all();
+
+        return view('confirmation', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -81,6 +89,8 @@ class InformasiPemesananController extends Controller
      */
     public function destroy(InformasiPemesanan $informasiPemesanan)
     {
-        //
+        InformasiPemesanan::destroy($informasiPemesanan->id);
+
+        return redirect('/konfirmasi');
     }
 }

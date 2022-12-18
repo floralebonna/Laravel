@@ -11,7 +11,6 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    //
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -26,5 +25,15 @@ class LoginController extends Controller
         }
 
         return back()->with('error', 'Username atau Password Salah');
-}
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
