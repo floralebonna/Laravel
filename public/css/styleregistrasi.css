@@ -2,10 +2,10 @@
     padding: 0;
     margin: 0;
 }
-body{
+/* body{
     background: url('gambar.png') no-repeat;
     background-size: cover;
-}
+} */
 .Register-form{
     padding: 30px;
     background-color:#6FB3F2;
@@ -59,7 +59,7 @@ h1{
     font-family: sans-serif;
     font-size: 35px;
     color: #000;
-    border-bottom: 3px solid white; 
+    border-bottom: 3px solid white;
 }
 h6{
     font-family: 'Arial Narrow';

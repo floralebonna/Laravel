@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\orderan;
 use App\Http\Requests\StoreorderanRequest;
 use App\Http\Requests\UpdateorderanRequest;
+use Illuminate\Support\Facades\DB;
 
 class OrderanController extends Controller
 {
@@ -15,7 +16,14 @@ class OrderanController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::select('select * from informasi_pemesanans JOIN
+        users ON informasi_pemesanans.idPelanggan = users.id JOIN
+        orderans ON informasi_pemesanans.idBooking = orderans.id');
+
+        // return $data;
+        return view('confirmation', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -81,6 +89,9 @@ class OrderanController extends Controller
      */
     public function destroy(orderan $orderan)
     {
-        //
+        // $i = DB::table('form')->where('id', $id);
+        // $i->delete();
+
+        return redirect('/konfirmasi');
     }
 }

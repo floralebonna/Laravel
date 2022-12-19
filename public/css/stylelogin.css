@@ -3,10 +3,10 @@
     margin: 0;
     font-family: sans-serif;
 }
-body{
+/* body{
     background-image: url('/public/img/gambar.png');
     background-size: cover;
-}
+} */
 h1{
     color: #000;
     border-bottom: 2px solid white;

@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Orderan</title>
-    <link rel="stylesheet" href="styleorderan.css">
+    <link rel="stylesheet" href={{ asset('css/styleorderan.css') }}>
+    <style>
+        body {
+            background-image: url('img/gambar.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
 </head>
+
 <body>
     <h1 align="center">List Orderan</h1>
     <form action="">
@@ -24,39 +34,22 @@
                     <th>Action</th>
                 </tr>
             </thead>
-
-            <?php
-                include "config.php";
-                $no=1;
-
-                if(isset($_GET['cari'])){
-                    $cari = $_GET['cari'];
-                    $query = mysqli_query($conn, "SELECT * FROM informasi_pemesanan INNER JOIN 
-                    pelanggan ON informasi_pemesanan.ID_Pelanggan = pelanggan.ID_Pelanggan INNER JOIN 
-                    booking ON informasi_pemesanan.ID_Booking = booking.ID_Booking WHERE 
-                    Name LIKE '%". $_GET['cari']."%'");
-                }else{
-                    $query = mysqli_query($conn, "SELECT * FROM informasi_pemesanan INNER JOIN 
-                    pelanggan ON informasi_pemesanan.ID_Pelanggan = pelanggan.ID_Pelanggan INNER JOIN 
-                    booking ON informasi_pemesanan.ID_Booking = booking.ID_Booking");
-                }
-                while ($data = mysqli_fetch_array($query)){
-            ?>
-            <tr>
-                <td align="center"><?php echo $no++ ?></td>
-                <td><?php echo $data['Name'] ?></td>
-                <td><?php echo $data['Address'] ?></td>
-                <td align="center"><?php echo date('d-m-Y', strtotime($data["Date"])); ?></td>
-                <td align="center"><?php echo $data['Time'] ?></td>
-                <td align="center">
-                    <a href="yourOrderBelum.php?Name=<?=$data ['Name']?>"><button>Open</button></a>            
-                </td>
-            </tr>
-            <?php } ?>
+            @foreach ($data as $d)
+                <tr>
+                    <td align="center">{{ $loop->iteration }}</td>
+                    <td>{{ $d->Name }}</td>
+                    <td>{{ $d->alamat }}</td>
+                    <td align="center">{{ \Carbon\Carbon::parse($d->date)->format('d M Y') }}</td>
+                    <td align="center">{{ $d->time }}</td>
+                    <td align="center">
+                        <a href="orderan/{{ $d->id }}"><button>Open</button></a>
+                    </td>
+                </tr>
+            @endforeach
         </table>
-        <center><a href="halamanPelanggan.php"><button class="button button2" type="submit" name="back">Back</button></a></center>
+        <center><a href="/dashboard"><button class="button button2" type="submit"
+                    name="back">Back</button></a></center>
     </form>
 </body>
-</html>
-    
 
+</html>

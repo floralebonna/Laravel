@@ -1,109 +1,94 @@
 <html>
-    <head>
-        <title>Lunas Order</title>
-        <link rel="stylesheet" href="styleorderlunas.css">
-    </head>
-    <body>
-        <div class="order-form">
-            <h1 align="center">Your Order</h1><br><br>
-            <form action="buttonKaryawan.php" method="POST">
-                <table align="center">
-                    <?php
-                        if(isset($_GET['ID_Pemesanan'])){
-                            $idp =$_GET['ID_Pemesanan'];
-                        }
-                        else {
-                            die ("Error. No ID Selected!");    
-                        }
-                        include "config.php";
-                        $query    =mysqli_query($conn, "SELECT * FROM informasi_pemesanan INNER JOIN 
-                        pelanggan ON informasi_pemesanan.ID_Pelanggan = pelanggan.ID_Pelanggan INNER JOIN 
-                        booking ON informasi_pemesanan.ID_Booking = booking.ID_Booking WHERE ID_Pemesanan='$idp'");
-                        while ( $data     = mysqli_fetch_array($query )){
-                    ?>
 
+<head>
+    <title>Lunas Order</title>
+    <link rel="stylesheet" href={{ asset("css/styleorderlunas.css") }}>
+</head>
+
+<body>
+    <div class="order-form">
+        <h1 align="center">Your Order</h1><br><br>
+        <form action="/konfirmasi" method="POST">
+            @csrf
+            <table align="center">
+                @foreach ($data as $data)
                     <tr>
-                        <td colspan="3" align="center"><p> Momaflovi Laundry </p></td>
+                        <td colspan="3" align="center">
+                            <p> Momaflovi Laundry </p>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input type="hidden" name="ID_Pelanggan" value="<?php echo $data['ID_Pelanggan'] ?>" >
-                        </td> 
+                            <input type="hidden" name="ID_Pelanggan" value="{{ $data->idPelanggan }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input type="hidden" name="ID_Booking" value="<?php echo $data['ID_Booking'] ?>" >
-                        </td> 
+                            <input type="hidden" name="ID_Booking" value="{{ $data->idBooking }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input type="hidden" name="ID_Pemesanan" value="<?php echo $data['ID_Pemesanan'] ?>" >
-                        </td> 
+                            <input type="hidden" name="ID_Pemesanan" value="{{ $id }}">
+                        </td>
                     </tr>
 
                     <tr>
                         <td>Name </td>
                         <td>:</td>
-                        <td>
-                            <input type="" name="Name" value="<?php echo $data['Name'] ?>">
-                        </td> 
+                        <td>{{ $data->Name }}</td>
                     </tr>
 
                     <tr>
                         <td>Phone Number </td>
                         <td>:</td>
-                        <td>
-                            <input type="" name="Phone_number" value="<?php echo $data['Phone_number'] ?>">
-                        </td> 
+                        <td>{{ $data->Phone_number }}</td>
                     </tr>
 
                     <tr>
                         <td>Address </td>
                         <td>:</td>
-                        <td>
-                            <input type="" name="Address" value="<?php echo $data['Address'] ?>">
-                        </td> 
+                        <td>{{ $data->alamat }}</td>
                     </tr>
 
                     <tr>
                         <td>Booking </td>
                         <td>:</td>
-                        <td>
-                            <input type="" name="Date" value="<?php echo $data['Date'] ?>">
-                        </td>
+                        <td>{{ \Carbon\Carbon::parse($data->date)->format('d M Y') }}</td>
                     </tr>
 
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>
-                            <input type="" name="Time" value="<?php echo $data['Time'] ?>">
-                        </td>
+                        <td>{{ $data->time }}</td>
                     </tr>
 
                     <tr>
                         <td>Total </td>
                         <td>:</td>
-                        <td>
-                            <input type="" name="Price" value="<?php echo $data['Price'] ?>">
-                        </td> 
+                        <td>@convert($data->Price)</td>
                     </tr>
+                @endforeach
 
-                    <tr>
-                        <td>Description </td>
-                        <td>:</td>
-                        <td><h5>Lunas</h5></td> 
-                    </tr>
-                    <?php } ?>
-                </table>
-                    <tr>
-                        <center><td colspan="3" align="center"><a href="buttonKaryawan.php?ID_Pemesanan=<?=$data['ID_Pemesanan']?>">
-                        <button type="submit" name="pay">OK</button></a></td>
-                    </tr>
-            </form>
-        </div>
-    </body>
+                <tr>
+                    <td>Description </td>
+                    <td>:</td>
+                    <td>
+                        <h5>Lunas</h5>
+                    </td>
+                </tr>
+            </table>
+            <tr>
+                <center>
+                    <td colspan="3" align="center"><a
+                            href="/konfirmasi">
+                            <button type="submit" name="pay">OK</button></a></td>
+            </tr>
+        </form>
+    </div>
+</body>
+
 </html>

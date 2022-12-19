@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreignId('idBooking');
             $table->string('Name');
             $table->string('Phone_number');
-            $table->string('Address');
+            $table->string('alamat');
+            $table->integer('Price')->default(20000);
             $table->timestamps();
         });
     }
